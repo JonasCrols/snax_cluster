@@ -166,6 +166,7 @@
     snax_streamer_gemmX_streamer_template :{
 
         data_reader_params: {
+<<<<<<< HEAD
             spatial_bounds: [[8], [8]],
             temporal_dim: [6, 6],
             num_channel: [8, 8],
@@ -173,6 +174,15 @@
             configurable_channel: [0, 0],
             tcdm_logic_word_size: [[256, 128, 64], [256, 128, 64]],
             datapath_extensions: [{HasTransposer: {row:[8], col:[8], elementWidth:[8]}}, {HasTransposer: {row:[8], col:[8], elementWidth:[8]}}]
+=======
+            spatial_bounds: [[4], [4]],
+            temporal_dim: [6, 6],
+            num_channel: [4, 4],
+            fifo_depth: [8, 8],
+            configurable_channel: [0, 0],
+            tcdm_logic_word_size: [[256, 128, 64], [256, 128, 64]],
+            datapath_extensions: [{HasTransposer: {row:[8], col:[4], elementWidth:[8]}}, {HasTransposer: {row:[4], col:[8], elementWidth:[8]}}]
+>>>>>>> 9fc0bfd (add initial configurations)
         },
 
         data_writer_params:{
@@ -188,7 +198,11 @@
             spatial_bounds: [[4, 2], [4, 2]],
             temporal_dim: [4, 4],
             num_channel: [8, 8],
+<<<<<<< HEAD
             fifo_depth: [2, 2],
+=======
+            fifo_depth: [1, 1],
+>>>>>>> 9fc0bfd (add initial configurations)
             configurable_channel: [1, 0],
             tcdm_logic_word_size: [[256, 128, 64], [256, 128, 64]],
             datapath_extensions: [{HasBroadcaster: {inputLength: 256, outputLength: 512}}, {}]

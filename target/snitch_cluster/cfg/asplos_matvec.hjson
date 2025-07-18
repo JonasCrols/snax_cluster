@@ -52,6 +52,7 @@
             "snax_enable_assign_tcdm_idx": true,
             "snax_narrow_assign_start_idx": [
                 0,
+<<<<<<< HEAD
                 68
             ],
             "snax_narrow_assign_end_idx": [
@@ -65,6 +66,19 @@
             "snax_wide_assign_end_idx": [
                 67,
                 77
+=======
+                18
+            ],
+            "snax_narrow_assign_end_idx": [
+                1,
+                38
+            ],
+            "snax_wide_assign_start_idx": [
+                2
+            ],
+            "snax_wide_assign_end_idx": [
+                17
+>>>>>>> 9fc0bfd (add initial configurations)
             ]
         }
         // AXI bandwidth switcher
@@ -136,6 +150,7 @@
         snax_acc_cfg: [{
             snax_acc_name: "snax_streamer_gemmX",
             bender_target: ["snax_gemmX"],
+<<<<<<< HEAD
             snax_narrow_tcdm_ports: 6,
             snax_wide_tcdm_ports: 72,
             snax_num_rw_csr: 29,
@@ -145,6 +160,17 @@
             snax_gemmx_mesh_col: 16,
             snax_gemmx_serial_c32_d32_width: 512,
             snax_gemmx_serial_d8_width: 128,
+=======
+            snax_narrow_tcdm_ports: 7,
+            snax_wide_tcdm_ports: 16,
+            snax_num_rw_csr: 19,
+            snax_num_ro_csr: 2,
+            snax_gemmx_mesh_row: 1,
+            snax_gemmx_tile_size: 16,
+            snax_gemmx_mesh_col: 8,
+            snax_gemmx_serial_c32_d32_width: 256,
+            snax_gemmx_serial_d8_width: 64,
+>>>>>>> 9fc0bfd (add initial configurations)
             with_pipeline: false,
             snax_streamer_cfg: {$ref: "#/snax_streamer_gemmX_streamer_template" }
         }],
@@ -184,6 +210,7 @@
     snax_streamer_gemmX_streamer_template :{
 
         data_reader_params: {
+<<<<<<< HEAD
             spatial_bounds: [[4], [64]],
             temporal_dim: [6, 6],
             num_channel: [4, 64],
@@ -197,16 +224,40 @@
             temporal_dim: [4],
             num_channel: [2],
             fifo_depth: [4],
+=======
+            spatial_bounds: [[2], [16]],
+            temporal_dim: [6, 3],
+            num_channel: [2, 16],
+            fifo_depth: [2, 16],
+            configurable_channel: [0, 0],
+            datapath_extensions: [{HasTransposer: {row:[1], col:[16], elementWidth:[8]}}, {HasTransposer: {row:[16], col:[8], elementWidth:[8]}}]
+        },
+
+        data_writer_params:{
+            spatial_bounds: [[1]],
+            temporal_dim: [4],
+            num_channel: [1],
+            fifo_depth: [1],
+>>>>>>> 9fc0bfd (add initial configurations)
             configurable_channel: [0],
         },
 
         data_reader_writer_params:{
+<<<<<<< HEAD
             spatial_bounds: [[8], [8]],
             temporal_dim: [4, 4],
             num_channel: [8, 8],
             fifo_depth: [4, 4],
             configurable_channel: [1, 0],
             datapath_extensions: [{HasBroadcaster: {inputLength: 512, outputLength: 512}}, {}]
+=======
+            spatial_bounds: [[4], [4]],
+            temporal_dim: [4, 4],
+            num_channel: [4, 4],
+            fifo_depth: [1, 1],
+            configurable_channel: [1, 0],
+            datapath_extensions: [{HasBroadcaster: {inputLength: 256, outputLength: 256}}, {}]
+>>>>>>> 9fc0bfd (add initial configurations)
         },
 
         has_transpose: true,
