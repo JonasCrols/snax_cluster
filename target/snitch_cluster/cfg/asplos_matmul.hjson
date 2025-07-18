@@ -122,7 +122,7 @@
             snax_num_rw_csr: 19,
             snax_num_ro_csr: 2,
             snax_gemmx_mesh_row: 8,
-            snax_gemmx_tile_size: 4,
+            snax_gemmx_tile_size: 8,
             snax_gemmx_mesh_col: 8,
             snax_gemmx_serial_c32_d32_width: 512,
             snax_gemmx_serial_d8_width: 512,
@@ -166,9 +166,9 @@
     snax_streamer_gemmX_streamer_template :{
 
         data_reader_params: {
-            spatial_bounds: [[4], [4]],
+            spatial_bounds: [[8], [8]],
             temporal_dim: [6, 6],
-            num_channel: [4, 4],
+            num_channel: [8, 8],
             fifo_depth: [8, 8],
             configurable_channel: [0, 0],
             tcdm_logic_word_size: [[256, 128, 64], [256, 128, 64]],
